@@ -18,6 +18,16 @@ export default function TextForm(props) {
     setText(event.target.value);
   };
 
+  const handleCapitalWordClick = (event) => {
+    console.log("OnChnage Function");
+    setText((text) => text.replace(/\b\w/g, (char) => char.toUpperCase()));
+  };
+
+  const handleReverseClick = (event) => {
+    console.log("OnChnage Function");
+    setText((text) => text.split("").reverse().join(""));
+  };
+
   const [text, setText] = useState("");
   return (
     <>
@@ -37,6 +47,15 @@ export default function TextForm(props) {
         </button>
         <button className="btn btn-primary mx-2" onClick={handleLowerCaseClick}>
           Convert to LowerCase
+        </button>
+        <button
+          className="btn btn-primary mx-2"
+          onClick={handleCapitalWordClick}
+        >
+          Capitalize Word
+        </button>
+        <button className="btn btn-primary mx-2" onClick={handleReverseClick}>
+          Reverse
         </button>
       </div>
       <div className="container my-2">
